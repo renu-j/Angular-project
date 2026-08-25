@@ -9,4 +9,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('hrm');
+  header:string ="App Component"; //main controller 
 }
