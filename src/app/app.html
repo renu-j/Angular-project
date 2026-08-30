@@ -1,3 +1,77 @@
-<h1> App Component</h1>
-<br>
-<span>{{ header }}</span> <! string interpolation >
+<h1>App Component</h1>
+ 
+<span>{{ header }}</span>
+ 
+<div class="container">
+ 
+    <!-- Interpolation -->
+    <span>{{ 1 + 1 }}</span>
+ 
+    <hr>
+ 
+ 
+    <!-- Property Binding + Event Binding -->
+    <input
+        type="checkbox"
+        id="TestCheckbox"
+        [checked]="isChecked"
+        (change)="changeCheckbox()"
+    >
+ 
+    <label for="TestCheckbox">
+        First Checkbox
+    </label>
+ 
+    <br>
+ 
+ 
+    <!-- Two-Way Binding -->
+    <input
+        type="checkbox"
+        id="TestCheckbox2"
+        [(ngModel)]="isChecked"
+    >
+ 
+    <label for="TestCheckbox2">
+        Second Checkbox
+    </label>
+ 
+    <br>
+ 
+ 
+    <!-- Template Reference Variable -->
+    <input
+        type="checkbox"
+        id="TestCheckbox3"
+        #TestCheckboxTemp
+        (change)="changeCheckbox()"
+    >
+ 
+    <label for="TestCheckbox3">
+        Third Checkbox
+    </label>
+ 
+    <br>
+ 
+    <!-- ViewChild Example -->
+    <button (click)="getCheckboxValue()">
+        Get Third Checkbox Value
+    </button>
+ 
+    <br>
+    <br>
+ 
+ 
+    <!-- Display current value -->
+    {{ isChecked }}
+ 
+    <br>
+ 
+ 
+    <!-- Property Binding -->
+    <input
+        type="text"
+        [value]="isChecked"
+    >
+ 
+</div>
