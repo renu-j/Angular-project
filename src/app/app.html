@@ -59,19 +59,22 @@
     </button>
  
     <br>
-    <br>
- 
- 
     <!-- Display current value -->
     {{ isChecked }}
- 
     <br>
- 
- 
     <!-- Property Binding -->
     <input
         type="text"
-        [value]="isChecked"
+        [value]="isChecked" (input) ="changeCheckbox()">
+ </div>
+    <hr>
+ <div class ="container">
+        <app-home
+        [parentsValue]="isChecked"
+        (childevent)="handleChilsEvents($event)"
+        >   </app-home>
+ </div>
+ <hr>
+ <p class="text-center">------END OF THE LINE </p>
     >
  
-</div>
