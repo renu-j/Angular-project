@@ -2,19 +2,13 @@
 
 <ul>
     <li><a routerLink="">App</a></li>
-    <li><a routerLink="/home" [queryParams]="sampleMessage">Home</a></li>
+    <li><a routerLink="/home">Home</a></li>
     <ul>
         <li>
             <a routerLink="/home/dashboard">Home Child</a>
         </li>
     </ul>
-    <li><a [routerLink]="['/about', 5, 10]">About</a></li>
+    <li><a routerLink="/about">About</a></li>
 </ul>
-
-<button (click)="goToHome()">
-    Go to Home
-</button>
-
-
 
 <router-outlet></router-outlet>

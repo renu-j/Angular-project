@@ -18,7 +18,7 @@ export const routes: Routes = [
         loadChildren: () => import('./home/home.routes').then(m=>m.routes)
     },
     {
-        path: 'about/:msg/:loc',
+        path: 'about',
         loadComponent: () => import('./about/about').then(m => m.About)
     }
 ];
