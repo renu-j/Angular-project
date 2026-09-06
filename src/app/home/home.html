@@ -1,7 +1,77 @@
 <h3 class="text-center">Home Component</h3>
 <br>
 
-{{ total }}
-
-<br>
 <router-outlet></router-outlet>
+
+<div class="container">
+    <h3 class="text-center text-success">Log In</h3>
+
+    <!-- Form using Two way data binding -->
+    <form (ngSubmit)="onSubmit()">
+        <label>Username:</label>
+        <input type="text" name="uname" [(ngModel)]="username">
+        <br>
+        <label>Password:</label>
+        <input type="password" name="pwd" [(ngModel)]="password">
+        <br>
+        <button type="submit">
+            Create account
+        </button>
+    </form>
+
+    <!-- Template-driven Form -->
+    <h3>Template-driven</h3>
+    <form #userTemplateForm="ngForm" (ngSubmit)="onSubmitTemplate(userTemplateForm.value)">
+        <label>Username:</label>
+        <input type="text" name="username" ngModel>
+        <br>
+        <label>Password:</label>
+        <input type="password" name="password" ngModel>
+        <br>
+        <button type="submit">
+            Create account
+        </button>
+    </form>
+
+    <!-- Reactive forms (Recommended) -->
+    <h3>Reactive Form</h3>
+    <form [formGroup]="userReactiveForm" (ngSubmit)="onSubmitReactive()">
+        <div>
+            <label>Username:</label>
+            <input type="text" formControlName="username" class="form-control">
+            <span *ngIf="userReactiveForm.get('username')?.touched" class="text-danger">
+                <p *ngIf="userReactiveForm.get('username')?.hasError('required')">
+                    Username is required
+                </p>
+                <p *ngIf="userReactiveForm.get('username')?.hasError('minlength')">
+                    Username Invalid
+                </p>
+            </span>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" formControlName="password" class="form-control">
+            <span *ngIf="userReactiveForm.get('password')?.touched" class="text-danger">
+                <p *ngIf="userReactiveForm.get('password')?.hasError('required')">
+                    Password is required
+                </p>
+                <p *ngIf="userReactiveForm.get('password')?.hasError('minlength')">
+                    Password Invalid
+                </p>
+            </span>
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+            <input type="password" formControlName="confirmPassword" class="form-control">
+            <span *ngIf="userReactiveForm.get('confirmPassword')?.touched" class="text-danger">
+                <p *ngIf="userReactiveForm.get('confirmPassword')?.value != userReactiveForm.get('password')?.value">
+                    Passwords do not match
+                </p>
+            </span>
+        </div>
+        <button type="submit" class="btn btn-outline-success float-end">
+            Create account
+        </button>
+    </form>
+
+</div>
