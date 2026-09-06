@@ -1,0 +1,44 @@
+<div class="container">
+    <h3 class="text-center text-success">Login</h3>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="bg-light p-2">
+        <div>
+            <label>Username: <sup class="text-danger fw-bold">*</sup></label>
+            <input type="text" formControlName="username" class="form-control">
+            <span *ngIf="userForm.get('username')?.dirty">
+                <p *ngIf="userForm.get('username')?.hasError('required')" class="text-danger">
+                    Username is required
+                </p>
+                <p *ngIf="userForm.get('username')?.hasError('minlength')" class="text-danger">
+                    Username Invalid
+                </p>
+            </span>
+        </div>
+        <div>
+            <label>Password: <sup class="text-danger fw-bold">*</sup></label>
+            <input type="password" formControlName="password" class="form-control">
+            <span *ngIf="userForm.get('password')?.dirty">
+                <p *ngIf="userForm.get('password')?.hasError('required')" class="text-danger">
+                    Password is required
+                </p>
+                <p *ngIf="userForm.get('password')?.hasError('minlength')" class="text-danger">
+                    Password Invalid
+                </p>
+            </span>
+        </div>
+        <div>
+            <label>Confirm Password: <sup class="text-danger fw-bold">*</sup></label>
+            <input type="password" formControlName="confirmPassword" class="form-control">
+            <span>
+                <p *ngIf="userForm.get('confirmPassword')?.value != userForm.get('password')?.value"
+                    class="text-danger">
+                    Passwords do not match
+                </p>
+            </span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-outline-success float-end">
+                Create account
+            </button>
+        </div>
+    </form>
+</div>

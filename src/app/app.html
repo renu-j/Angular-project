@@ -1,14 +1,9 @@
-<h1 class="text-center text-primary">App Component</h1>
+<a routerLink="" class="container-fluid px-0">
+    <img [src]="imgBanner" alt="HRM Banner" class="w-100" [style.height]="'100px'">
+</a>
 
-<ul>
-    <li><a routerLink="">App</a></li>
-    <li><a routerLink="/home">Home</a></li>
-    <ul>
-        <li>
-            <a routerLink="/home/dashboard">Home Child</a>
-        </li>
-    </ul>
-    <li><a routerLink="/about">About</a></li>
-</ul>
+<app-navbar></app-navbar>
 
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>
