@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Service } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Service()
 export class ApiService {
 
     private httpClient = inject(HttpClient);
-    baseUrl = 'https://dummyjson.com';
+    baseUrl = environment.baseURL;
 
     headers = new HttpHeaders({
         Authorization: 'Bearer XYZTOken',
@@ -22,5 +23,9 @@ export class ApiService {
         const url = this.baseUrl + '/products/' + productId;
 
         return this.httpClient.get(url, { headers: this.headers });
+    }
+
+    isContactAllowed() {
+        return 5 != 5;
     }
 }
