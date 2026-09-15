@@ -1,1 +1,35 @@
+<div class ="container">
+    <h3> Property way (Manual management)</h3>
+    <br>
+    <input type ="text"[(ngModel) = "name"]><br>
+
+    Name :{{ name }}<br>
+    Display Name  ;{{ displayName}}<br>
+
+
+    <button(click)="chnageDislayName()" class="btn btn-primary"
+    Change displayName
+ </div>
+ <hr>
+ <div class=""container">
+    <h3> signal way(angular manuual type )</h3>
+</div>
 <p>state-management works!</p>
+ 
+<div class="container">
+    <h3>Sinal way (Angulars  new way)</h3>
+    <input type="text" [(ngModel)]="nameSignal">
+    <br>
+    Name:{{ nameSignal() }}<br>
+    Display Name: {{ displayName() }}<br>
+ 
+</div>
+<div class="container">
+    <h3>Observables/RxJs(Traditional industry standard)</h3>
+    <input type="text" [ngModel]="name$"|async"(ngModelChange)="changeName($event)">]
+    <br>
+    <br>
+    Name:{{ name$|async }}<br>
+    Display Name: {{ displayName() }}<br>
+    </div>
+    
